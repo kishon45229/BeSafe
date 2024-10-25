@@ -9,15 +9,6 @@
   - G. Kishon
   - [N. Abisha](https://github.com/Abishanavam)
 
-## Table of Contents
-1. [BeSafe: A Necessity for Sri Lanka](#besafe-a-necessity-for-sri-lanka)
-2. [Requirements](#requirements)
-3. [Scope](#scope)
-4. [Objectives](#objectives)
-5. [Features](#features)
-6. [Targeted Audience](#targeted-audience)
-7. [Future Improvements](#future-improvements)
-
 ## BeSafe: A Necessity for Sri Lanka
 In emergency situations, such as accidents or natural disasters, Sri Lankan citizens often struggle to get quick help due to limited accessibility to emergency contacts. **BeSafe** bridges this gap by offering a fast, accessible way to report incidents, contact nearby emergency services, and stay informed about nearby incidents to enhance personal safety.
 
