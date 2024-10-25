@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="top"
+        tools:context=".ReportIncident">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="20dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/custom_edittext">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
+
+                    <TableRow>
+                        <Button
+                            android:id="@+id/incidentReportButton"
+                            android:layout_width="90dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/report"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"/>
+
+                        <Button
+                            android:id="@+id/newsfeedButton"
+                            android:layout_width="90dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/newsfeed"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/white" />
+                    </TableRow>
+                </TableLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/reportIncidentLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible"
+                android:padding="24dp"
+                android:layout_marginTop="70dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/report_incident"
+                    android:textSize="35sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/incident_type"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="5dp"/>
+
+                <Spinner
+                    android:id="@+id/spinnerIncidentType"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/custom_edittext"
+                    android:entries="@array/incident_types"
+                    android:layout_marginBottom="20dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/address"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="10dp"/>
+
+                <CheckBox
+                    android:id="@+id/setCurrentLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/set_current_location_as_address"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/setLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="@string/set_location_on_map"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="5dp"/>
+
+                <FrameLayout
+                    android:id="@+id/map_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    android:visibility="gone"
+                    android:layout_marginBottom="10dp"/>
+
+                <EditText
+                    android:id="@+id/streetAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="50dp"
+                    android:maxLines="3"
+                    android:inputType="textMultiLine"
+                    android:hint="@string/street_address"
+                    android:drawableStart="@drawable/street_address"
+                    android:background="@drawable/custom_edittext"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:layout_marginBottom="10dp"
+                    android:padding="8dp" />
+
+                <EditText
+                    android:id="@+id/city"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="@string/city"
+                    android:drawableStart="@drawable/city"
+                    android:background="@drawable/custom_edittext"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:layout_marginBottom="10dp"
+                    android:padding="8dp" />
+
+                <EditText
+                    android:id="@+id/district"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="@string/district"
+                    android:drawableStart="@drawable/district"
+                    android:background="@drawable/custom_edittext"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:layout_marginBottom="20dp"
+                    android:padding="8dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/date"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="5dp"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/date"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:hint="@string/select_date"
+                        android:drawableStart="@drawable/baseline_calendar_month_24"
+                        android:background="@drawable/custom_edittext"
+                        android:textColorHighlight="@color/cardview_dark_background"
+                        android:padding="8dp"
+                        android:focusable="false"
+                        android:clickable="true"
+                        android:onClick="showDatePickerDialog" />
+
+                    <ImageButton
+                        android:id="@+id/calenderIcon"
+                        android:layout_width="37dp"
+                        android:layout_height="29dp"
+                        android:layout_gravity="center_vertical|end"
+                        android:layout_marginEnd="10dp"
+                        android:background="@null"
+                        android:padding="1dp"
+                        android:scaleType="fitCenter"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/baseline_calendar_24"
+                        app:tint="@color/black" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/time"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="5dp"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp">
+
+                    <EditText
+                        android:id="@+id/time"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:hint="@string/select_time"
+                        android:drawableStart="@drawable/baseline_access_time_filled_24"
+                        android:background="@drawable/custom_edittext"
+                        android:textColorHighlight="@color/cardview_dark_background"
+                        android:padding="8dp"
+                        android:focusable="false"
+                        android:clickable="true"
+                        android:onClick="showTimePickerDialog" />
+
+                    <ImageButton
+                        android:id="@+id/watchIcon"
+                        android:layout_width="37dp"
+                        android:layout_height="29dp"
+                        android:layout_gravity="center_vertical|end"
+                        android:layout_marginEnd="10dp"
+                        android:background="@null"
+                        android:padding="1dp"
+                        android:scaleType="fitCenter"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/baseline_access_time_24"
+                        app:tint="@color/black" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/severity"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="5dp"/>
+
+                <RadioGroup
+                    android:id="@+id/severityRadioBtnGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/minorRadioBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="-10dp"
+                        android:text="@string/minor"
+                        android:textSize="18sp" />
+
+                    <RadioButton
+                        android:id="@+id/moderateRadioBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="-10dp"
+                        android:text="@string/moderate"
+                        android:textSize="18sp" />
+
+                    <RadioButton
+                        android:id="@+id/severeRadioBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/severe"
+                        android:textSize="18sp" />
+
+                </RadioGroup>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/injuries_fatalities"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"/>
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/number_of_injured_children"
+                            android:textSize="18sp"/>
+
+                        <EditText
+                            android:id="@+id/numInjuredChildren"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:inputType="number"/>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/number_of_injured_adults"
+                            android:textSize="18sp"/>
+
+                        <EditText
+                            android:id="@+id/numInjuredAdults"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:inputType="number"/>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/number_of_child_fatalities"
+                            android:textSize="18sp"/>
+
+                        <EditText
+                            android:id="@+id/numChildFatalities"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:inputType="number"/>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/number_of_adult_fatalities"
+                            android:textSize="18sp"/>
+
+                        <EditText
+                            android:id="@+id/numAdultFatalities"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:inputType="number"/>
+                    </TableRow>
+                </TableLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/property_damage"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="5dp"/>
+
+                <EditText
+                    android:id="@+id/propertyDamage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="80dp"
+                    android:maxLines="3"
+                    android:inputType="textMultiLine"
+                    android:hint="@string/enter_property_damage_details"
+                    android:background="@drawable/custom_edittext"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:layout_marginBottom="20dp"
+                    android:padding="8dp"
+                    android:gravity="top|left"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/description"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="5dp"/>
+
+                <EditText
+                    android:id="@+id/description"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:hint="@string/enter_description"
+                    android:inputType="textMultiLine"
+                    android:background="@drawable/custom_edittext"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:padding="8dp"
+                    android:gravity="top|left"/>
+
+                <Button
+                    android:id="@+id/buttonAttach"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/attach_photos"
+                    android:textSize="18sp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="5dp"/>
+
+                <LinearLayout
+                    android:id="@+id/mediaPreviewLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/witness_information"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="5dp"/>
+
+                <CheckBox
+                    android:id="@+id/witnessDetailsCheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/me"
+                    android:textSize="18sp"/>
+
+                <EditText
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="50dp"
+                    android:maxLines="3"
+                    android:inputType="textMultiLine"
+                    android:hint="@string/name"
+                    android:background="@drawable/custom_edittext"
+                    android:drawableStart="@drawable/baseline_person_24"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:padding="8dp" />
+
+                <EditText
+                    android:id="@+id/contactDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="@string/_76_1234567"
+                    android:background="@drawable/custom_edittext"
+                    android:drawableStart="@drawable/baseline_contact_phone_24"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:layout_marginTop="5dp"
+                    android:padding="8dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/emergency_response"
+                    android:layout_marginTop="20dp"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+                <RadioGroup
+                    android:id="@+id/emergencyResponseRadioBtnGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/responseContacted"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/emergency_response_contacted"
+                        android:textSize="18sp" />
+
+                    <RadioButton
+                        android:id="@+id/informThroughBeSafe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/inform_through_besafe"
+                        android:textSize="18sp"
+                        android:layout_marginTop="-10dp"/>
+                </RadioGroup>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/additional_comments"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="5dp"/>
+
+                <EditText
+                    android:id="@+id/additionalComments"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:hint="@string/enter_additional_comments"
+                    android:background="@drawable/custom_edittext"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:padding="8dp"
+                    android:gravity="top|left"/>
+
+                <Button
+                    android:id="@+id/submitButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="@string/post"
+                    android:textSize="20sp"
+                    android:layout_marginTop="20dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/newsfeedLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Newsfeed"
+                    android:textSize="50sp"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</ScrollView>

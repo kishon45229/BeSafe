@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="incident_types">
+        <item>-- Select --</item>
+        <item>Flood</item>
+        <item>Landslide</item>
+        <item>Accident</item>
+        <item>Crime</item>
+        <!-- Add more incident types as needed -->
+    </string-array>
+
+    <string-array name="service_types">
+        <item>Hospital</item>
+        <item>Police Station</item>
+        <item>Fire Station</item>
+    </string-array>
+</resources>
