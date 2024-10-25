@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class EmergencyServiceFinder {
     private static final String BASE_URL = "https://maps.googleapis.com/maps/api/place/";
-    private static final String API_KEY = "AIzaSyABzWu0Duv_xa2SomgfXoo2LJGEL1qgEEs";
+    private static final String API_KEY = "API_KEY";
     private PlacesApiService placesApi;
 
     public EmergencyServiceFinder() {

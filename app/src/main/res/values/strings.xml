@@ -104,7 +104,6 @@
     <string name="date1">Date</string>
     <string name="incident_type1">Incident type</string>
     <string name="incident_analysis">Incident analysis</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="default_notification_channel_id">your_default_channel_id</string>
 </resources>
